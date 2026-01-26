@@ -1,11 +1,18 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LoadSceneByIndex : MonoBehaviour
+public class SwitchToTutorial : MonoBehaviour
 {
-    // General method to load scenes based on build index
-    public void LoadScene(int sceneIndex)
+    // Call this from a UI Button OnClick() or from code
+    public void SwitchToTutorialScene()
     {
-        SceneManager.LoadScene(sceneIndex);
+        // Synchronous load (simple). Make sure "Tutorial" is in Build Settings.
+        SceneManager.LoadScene("Tutorial");
+    }
+
+    // Optional: async version (non-blocking)
+    public void SwitchToTutorialSceneAsync()
+    {
+        SceneManager.LoadSceneAsync("Tutorial", LoadSceneMode.Single);
     }
 }
